@@ -17,14 +17,14 @@ api_base_url = 'https://api.api-ninjas.com/v1/nutrition?query='
 # server = ctx.message.server
 
 def get_quote():
-    response = requests.get(api_url, headers={'X-Api-Key': 'Q/pZ1T9NGmCJcZPkCTxOyw==w8e1XgQNRx1gON2F'})
+    response = requests.get(api_url, headers={'X-Api-Key': 'os.environ['api']'})
     json_data = json.loads(response.text)
     quote = json_data[0]["quote"] + " - " + json_data[0]["author"]
     return quote
 
 def get_nutrition(query):
     api_url2 = api_base_url + query
-    response = requests.get(api_url2, headers={'X-Api-Key': 'Q/pZ1T9NGmCJcZPkCTxOyw==w8e1XgQNRx1gON2F'})
+    response = requests.get(api_url2, headers={'X-Api-Key': 'os.environ['nutritionAPI']'})
     json_data = json.loads(response.text)
     try:
         calories = str(json_data[0]["calories"]) + " - CALORIES"
